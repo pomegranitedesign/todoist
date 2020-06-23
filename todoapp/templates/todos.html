@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% set active_page = 'todos' %}
+
+{% block title %}
+<title>TODO List</title>
+{% endblock %}
+
+{% block content %}
+<div class="uk-container uk-margin-medium-top">
+  <h1 class="uk-heading-small" style="font-weight: 900;">
+    {% if todos|length == 0 %}
+    No Todos | 
+    <a href="/add-todo">Add your first todo</a>
+    {% else %}
+    TODOS
+    {% endif %}
+  </h1>
+  
+  {% if todos %}
+    <table class="uk-table uk-table-striped uk-table-hover">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Done</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for todo in todos %}
+        <tr style="cursor: pointer;" {{ 'style="text-decoration: line-through;""' if todo.done }}>
+            <td>{{ todo.task }}</td>
+            <td>
+              <input style="cursor: pointer;" type="checkbox" {{ 'checked="checked"' if todo.done }} />
+            </td>
+            <td>
+              <div uk-tooltip="title: Remove Todo">
+                <a href="/remove-todo/{{ todo.id }}" uk-icon="icon: trash;"></a>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</div>
+{% endblock %}

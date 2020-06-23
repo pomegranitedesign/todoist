@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %}{% endblock %}
+</head>
+<body>
+  <div>
+    <nav class="uk-navbar-container" uk-navbar>
+      <div class="uk-navbar-left">
+        <div class="uk-container">
+          <ul class="uk-navbar-nav">
+            <li class="{{ 'uk-active' if active_page == 'home' else '' }}">
+              <a href="/">Home</a>
+            </li>
+            <li class="{{ 'uk-active' if active_page == 'todos' else '' }}">
+              <a href="/todos">Todos</a>
+            </li>
+            <li class="{{ 'uk-active' if active_page == 'add-todo' else '' }}">
+              <a href="/add-todo">Add Todo</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+  </div>
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+</body>
+</html>
