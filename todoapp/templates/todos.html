@@ -15,9 +15,14 @@
     TODOS
     {% endif %}
   </h1>
+
+  <form class="uk-search uk-search-navbar">
+    <span uk-search-icon></span>
+    <input autofocus id="searchInput" style="border-bottom: 1px solid;" type="search" class="uk-search-input" placeholder="Search" />
+  </form>
   
   {% if todos %}
-    <table class="uk-table uk-table-striped uk-table-hover">
+    <table class="uk-table uk-table-striped uk-table-hover" uk-sortable>
       <thead>
         <tr>
           <th>Task</th>
@@ -29,7 +34,7 @@
         <tr style="cursor: pointer;" {{ 'style="text-decoration: line-through;""' if todo.done }}>
             <td>{{ todo.task }}</td>
             <td>
-              <input style="cursor: pointer;" type="checkbox" {{ 'checked="checked"' if todo.done }} />
+              <input id="done" style="cursor: pointer;" type="checkbox" {{ 'checked="checked"' if todo.done }} />
             </td>
             <td>
               <div uk-tooltip="title: Remove Todo">

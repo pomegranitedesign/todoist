@@ -9,8 +9,11 @@
 <div class="uk-container uk-margin-medium-top">
   <h1 class="uk-heading-small" style="font-weight: 900; margin-bottom: 40px;">ADD TODO</h1>
   <form action="/add-todo" method="POST">
-    <input class="uk-input" type="text" name="task" id='task' placeholder="Go for a walk" required />
+    <input class="uk-input" type="text" name="task" id='task' placeholder="Go for a walk" required autofocus />
     <button class='uk-button uk-button-primary uk-width-1-1 uk-margin-medium-top' type='submit'>Add TODO</button>
+    <button class='uk-button uk-button-danger uk-width-1-1' style="margin-top: 10px;" type='submit'>
+      <a style="color: #ffffff; text-decoration: none;" href="/">Cancel</a>
+    </button>
   </form>
 </div>
 {% endblock %}

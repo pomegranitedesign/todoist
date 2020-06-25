@@ -3,7 +3,8 @@
 <head>
   <!-- UIkit CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!-- Custom CSS file, uncomment to add custom styling -->
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% block title %}{% endblock %}
@@ -29,7 +30,7 @@
     </nav>
     {% block content %}{% endblock %}
   </div>
-  <script src="{{ url_for('static', filename='main.js') }}"></script>
+  <script src="/static/js/main.js"></script>
   <!-- UIkit JS -->
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
